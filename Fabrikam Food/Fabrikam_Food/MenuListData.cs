@@ -21,7 +21,7 @@ namespace Fabrikam_Food
             {
                 Title = "Maps",
                 IconSource = "maps.png",
-                TargetType = typeof(MapsPage)
+                TargetType = typeof(MapPage)
             });
 
 

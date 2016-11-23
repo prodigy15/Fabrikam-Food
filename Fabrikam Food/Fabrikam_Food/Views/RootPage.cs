@@ -16,7 +16,7 @@ namespace Fabrikam_Food
             menuPage.Menu.ItemSelected += (sender, e) => NavigateTo(e.SelectedItem as MenuItem);
 
             Master = menuPage;
-            var detail = new NavigationPage(new MapsPage());
+            var detail = new NavigationPage(new SmartHelperPage());
             detail.BarBackgroundColor = Color.FromHex("3498DB");
             detail.BarTextColor = Color.White;
             Detail = detail;

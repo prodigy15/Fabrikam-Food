@@ -31,8 +31,9 @@ namespace Fabrikam_Food
                 }
             };*/
 
-            //MainPage = new MapsPage();
-            MainPage = new MenuListPage();
+            //MainPage = new MapPage();
+            MainPage = new RootPage();
+            //MainPage = new MenuListPage();
         }
 
         protected override void OnStart()

@@ -13,13 +13,13 @@
                 <RowDefinition Height="Auto" />
               </Grid.RowDefinitions>
               <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="50*" />
-                <ColumnDefinition Width="50*" />
-                <ColumnDefinition Width="50*" />
+                <ColumnDefinition Width="25*" />
+                <ColumnDefinition Width="75*" />
+                <ColumnDefinition Width="15*" />
               </Grid.ColumnDefinitions>
               <Label Grid.Column="1" Text="{Binding Name}"/>
-              <Label Grid.Column="0" Text="{Binding Price}"/>
-              <Label Grid.Column="2" Text="{Binding Type}"/>
+              <Label Grid.Column="0" Text="{Binding Type}"/>
+              <Label Grid.Column="2" Text="{Binding Price}"/>
             </Grid>
           </ViewCell>
         </DataTemplate>
