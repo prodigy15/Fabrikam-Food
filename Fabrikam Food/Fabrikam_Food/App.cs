@@ -1,14 +1,18 @@
-﻿using System;
+﻿using Fabrikam_Food.Views;
+using Plugin.Geolocator;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace Fabrikam_Food
 {
+    public interface IAuthenticate { Task<bool> Authenticate(); }
     public class App : Application
     {
+        static NavigationPage _NavigationPage;
         public App()
         {
             /* The root page of your application
@@ -27,7 +31,8 @@ namespace Fabrikam_Food
                 }
             };*/
 
-            MainPage = new RootPage();
+            //MainPage = new MapsPage();
+            MainPage = new MenuListPage();
         }
 
         protected override void OnStart()
@@ -43,6 +48,17 @@ namespace Fabrikam_Food
         protected override void OnResume()
         {
             // Handle when your app resumes
+        }
+        public static IAuthenticate Authenticator { get; private set; }
+
+        public static void Init(IAuthenticate authenticator)
+        {
+            Authenticator = authenticator;
+        }
+
+        public static void authenticatedAction()
+        {
+            //App.Current.MainPage = new NavigationPage(new RootPage());
         }
     }
 }

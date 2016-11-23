@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Fabrikam_Food.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -33,9 +34,9 @@ namespace Fabrikam_Food
 
             this.Add(new MenuItem()
             {
-                Title = "Settings",
+                Title = "Menu List",
                 IconSource = "settings.png",
-                TargetType = typeof(SettingsPage)
+                TargetType = typeof(MenuListPage)
             });
         }
     }
