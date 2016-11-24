@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Fabrikam_Food.Views.FirstPage">
+  <StackLayout>
+    <Label Text="Welcome to Fabrikam Food! " VerticalOptions="Center" HorizontalOptions="Center" Font="Bold, 30"/>
+    <Label Text="We are a small boutique restaurant in Auckland, a truly iconic New Zealand brasserie offering diners sensational views - and food to match. Fabrikam Food offers a modern dining experience in a relaxed, open atmosphere with a delicious kiwi-inspired à la carte menu that features the best local and seasonal produce. It’s an unforgettable experience that never ceases to delight." HorizontalTextAlignment="Center"></Label>
+    <Image Source="fabrikaminside.jpg" />
+  </StackLayout>
+  
+</ContentPage>

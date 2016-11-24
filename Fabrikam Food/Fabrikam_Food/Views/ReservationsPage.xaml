@@ -11,8 +11,7 @@
     <Label Text="Please select a meal period" HorizontalTextAlignment="Center"></Label>
     <Picker x:Name =" PeriodPicker" IsEnabled="false" 
             SelectedIndexChanged="PeriodPicker_OnSelectedIndexChanged"/>
-    <Label Text="Please specify party size" HorizontalTextAlignment="Center"></Label>
-    <Picker x:Name =" MainPicker" IsEnabled="false" 
-            SelectedIndexChanged="MainPicker_OnSelectedIndexChanged"/>
+    <Button x:Name="AddButton" Text="Reserve to selected" TextColor="White" BackgroundColor="Red" Clicked="AddButton_Clicked" />
+    <Button x:Name="ChangeButton" Text="Change reservation to selected" TextColor="White" BackgroundColor="Red" Clicked="ChangeButton_Clicked" />
   </StackLayout>
 </ContentPage>

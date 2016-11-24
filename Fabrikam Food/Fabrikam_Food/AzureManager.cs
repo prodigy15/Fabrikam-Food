@@ -20,7 +20,7 @@ namespace Fabrikam_Food
         private AzureManager()
         {
             // Azure connection 
-            this.client = new MobileServiceClient("http://fabrikamsolution.azurewebsites.net/");
+            this.client = new MobileServiceClient("https://fabrikamsolution.azurewebsites.net/");
             //db
             this.menuTable = this.client.GetTable<Menu>();
             this.reservationTable = this.client.GetTable<Reservations>();

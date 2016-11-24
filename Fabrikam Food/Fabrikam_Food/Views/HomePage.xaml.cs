@@ -34,6 +34,7 @@ namespace Fabrikam_Food.Views
             if (authenticated)
             {
                 this.loginButton.IsVisible = false;
+                LoginDescription.Text = "Welcome, " + AzureManager.AzureManagerInstance.AzureClient.CurrentUser.UserId;
             }
         }
     }

@@ -25,6 +25,12 @@ namespace Fabrikam_Food
             });
             this.Add(new MenuItem()
             {
+                Title = "Menu List",
+                IconSource = "settings.png",
+                TargetType = typeof(MenuListPage)
+            });
+            this.Add(new MenuItem()
+            {
                 Title = "Maps",
                 IconSource = "maps.png",
                 TargetType = typeof(MapPage)
@@ -35,19 +41,11 @@ namespace Fabrikam_Food
                 IconSource = "maps.png",
                 TargetType = typeof(MapAnalytics)
             });
-
             this.Add(new MenuItem()
             {
                 Title = "Smart Helper",
                 IconSource = "smarthelper.png",
                 TargetType = typeof(SmartHelperPage)
-            });
-
-            this.Add(new MenuItem()
-            {
-                Title = "Menu List",
-                IconSource = "settings.png",
-                TargetType = typeof(MenuListPage)
             });
             this.Add(new MenuItem()
             {

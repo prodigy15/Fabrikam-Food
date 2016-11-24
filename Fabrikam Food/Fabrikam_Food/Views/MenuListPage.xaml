@@ -4,7 +4,6 @@
              x:Class="Fabrikam_Food.Views.MenuListPage">
   <StackLayout>
     <Button x:Name="MenuButton" Text="View Menu" TextColor="White" BackgroundColor="Red" Clicked="ViewMenu_Clicked" />
-    <Label x:Name="MenuLabel" Text =" Menu " HorizontalTextAlignment="Center" FontSize="30"></Label>
     <Label x:Name="WaitLabel" Text ="Please wait while we ask our chefs ... "
            HorizontalTextAlignment="Center"></Label>
     <Label x:Name="EntreeLabel" Text ="Entrées"

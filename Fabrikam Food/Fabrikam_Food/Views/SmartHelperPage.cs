@@ -9,9 +9,8 @@ namespace Fabrikam_Food
             var browser = new WebView();
             var source = new HtmlWebViewSource();
             source.Html = @"<html><body>
-            <p>Welcome to Smart Helper ! </p>
             <iframe src='https://webchat.botframework.com/embed/SmartHelper?s=YzJL3hRFmIk.cwA.UC0.meMnMMy2DVZ-u3w8RWiJfBv9m4t9XfL4tk4ZPqtGP7s' 
-            style='height:380px;width:302px'>
+            style='height:450px;width:370px'>
             </body></html>";
             browser.Source = source;
 

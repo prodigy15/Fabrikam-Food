@@ -16,7 +16,6 @@ namespace Fabrikam_Food.Views
             InitializeComponent();
             Title = "Menu List";
             this.WaitLabel.IsVisible = false;
-            this.MenuLabel.IsVisible = false;
             this.EntreeLabel.IsVisible = false;
             this.SideLabel.IsVisible = false;
             this.MainLabel.IsVisible = false;
@@ -28,7 +27,6 @@ namespace Fabrikam_Food.Views
             List<Menu> menulist = await AzureManager.AzureManagerInstance.GetMenu();
             this.MenuButton.IsVisible = false;
             this.WaitLabel.IsVisible = false;
-            this.MenuLabel.IsVisible = true;
             this.EntreeLabel.IsVisible = true;
             this.SideLabel.IsVisible = true;
             this.MainLabel.IsVisible = true;
