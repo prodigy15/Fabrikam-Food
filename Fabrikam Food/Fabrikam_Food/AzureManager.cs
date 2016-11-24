@@ -15,6 +15,7 @@ namespace Fabrikam_Food
 
         //used for table references
         private IMobileServiceTable<Menu> menuTable;
+        private IMobileServiceTable<Reservations> reservationTable;
 
         private AzureManager()
         {
@@ -22,6 +23,7 @@ namespace Fabrikam_Food
             this.client = new MobileServiceClient("http://fabrikamsolution.azurewebsites.net/");
             //db
             this.menuTable = this.client.GetTable<Menu>();
+            this.reservationTable = this.client.GetTable<Reservations>();
         }
 
         public MobileServiceClient AzureClient
@@ -46,6 +48,20 @@ namespace Fabrikam_Food
         public async Task<List<Menu>> GetMenu()
         {
             return await this.menuTable.ToListAsync();
+        }
+
+        public async Task<List<Reservations>> GetReservation()
+        {
+            return await this.reservationTable.ToListAsync();
+        } 
+
+        public async Task PostReservation(Reservations res)
+        {
+            await reservationTable.InsertAsync(res);
+        }
+        public async Task UpdateReservation(Reservations res)
+        {
+            await reservationTable.UpdateAsync(res);
         }
     }
 }

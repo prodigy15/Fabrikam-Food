@@ -3,6 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Fabrikam_Food.Views.HomePage">
   <StackLayout>
-    <Button x:Name="loginButton" Text="Sign-in" MinimumHeightRequest="30" Clicked="loginButton_Clicked"/>
+    <StackLayout VerticalOptions="CenterAndExpand">
+      <Label Text="Welcome to Fabrikam Food! Please sign in for a more personalized experience!"></Label>
+      <Button x:Name="loginButton" Text="Sign in using facebook account" MinimumHeightRequest="30" Clicked="loginButton_Clicked" />
+    </StackLayout>
+    
   </StackLayout>
 </ContentPage>

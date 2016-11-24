@@ -30,7 +30,7 @@ namespace Fabrikam_Food
                     }
                 }
             };*/
-
+            
             //MainPage = new MapPage();
             //MainPage = new HomePage();
             MainPage = new RootPage();
@@ -39,6 +39,7 @@ namespace Fabrikam_Food
         protected override void OnStart()
         {
             // Handle when your app starts
+            //redirectPage();
         }
 
         protected override void OnSleep()
@@ -56,5 +57,10 @@ namespace Fabrikam_Food
         {
             Authenticator = authenticator;
         }
+
+        /*public async void redirectPage()
+        {
+            await _NavigationPage.PushAsync(new HomePage());
+        }*/
     }
 }

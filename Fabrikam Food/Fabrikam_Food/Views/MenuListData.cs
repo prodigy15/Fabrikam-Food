@@ -13,6 +13,12 @@ namespace Fabrikam_Food
         {
             this.Add(new MenuItem()
             {
+                Title = "Fabrikam Food",
+                IconSource = "reservations.png",
+                TargetType = typeof(FirstPage)
+            });
+            this.Add(new MenuItem()
+            {
                 Title = "Reservations",
                 IconSource = "reservations.png",
                 TargetType = typeof(ReservationsPage)
@@ -23,7 +29,12 @@ namespace Fabrikam_Food
                 IconSource = "maps.png",
                 TargetType = typeof(MapPage)
             });
-
+            this.Add(new MenuItem()
+            {
+                Title = "Map Analytics",
+                IconSource = "maps.png",
+                TargetType = typeof(MapAnalytics)
+            });
 
             this.Add(new MenuItem()
             {
@@ -37,6 +48,12 @@ namespace Fabrikam_Food
                 Title = "Menu List",
                 IconSource = "settings.png",
                 TargetType = typeof(MenuListPage)
+            });
+            this.Add(new MenuItem()
+            {
+                Title = "Log In",
+                IconSource = "settings.png",
+                TargetType = typeof(HomePage)
             });
         }
     }

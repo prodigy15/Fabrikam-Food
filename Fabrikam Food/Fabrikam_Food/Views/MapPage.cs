@@ -1,7 +1,10 @@
-﻿using Plugin.Geolocator;
+﻿using Fabrikam_Food.DataModels;
+using Newtonsoft.Json;
+using Plugin.Geolocator;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
@@ -12,18 +15,31 @@ namespace Fabrikam_Food.Views
     public class MapPage : ContentPage
     {
         Position currentPosition;
+        Position arbitrary = new Position(-36.8530660, 174.7712930);
+        GoogleMapObject.RootObject rootObject;
+        String distance = "";
+        String duration = "";
         public MapPage()
         {
             var load = Task.Run(() => getPosition());
             var map = new Map(
-                MapSpan.FromCenterAndRadius(
-                        currentPosition, Distance.FromMiles(0.3)))
+                MapSpan.FromCenterAndRadius(arbitrary, Distance.FromMiles(0.3)))
             {
                 IsShowingUser = true,
                 HeightRequest = 100,
                 WidthRequest = 960,
                 VerticalOptions = LayoutOptions.FillAndExpand
             };
+
+            var pin = new Pin
+            {
+                Type = PinType.Place,
+                Position = new Position(-36.8519210, 174.7624020),
+                Label = "custom pin",
+                Address = "custom detail info"
+            };
+            map.Pins.Add(pin);
+
             var stack = new StackLayout { Spacing = 0 };
             stack.Children.Add(map);
             Content = stack;
@@ -34,14 +50,8 @@ namespace Fabrikam_Food.Views
                 var latlongdegrees = 360 / (Math.Pow(2, zoomLevel));
                 map.MoveToRegion(new MapSpan(map.VisibleRegion.Center, latlongdegrees, latlongdegrees));
             };
-            var pin = new Pin
-            {
-                Type = PinType.Place,
-                Position = currentPosition,
-                Label = "custom pin",
-                Address = "custom detail info"
-            };
-            map.Pins.Add(pin);
+
+
         }
 
         public async void getPosition()
@@ -50,7 +60,26 @@ namespace Fabrikam_Food.Views
             locator.DesiredAccuracy = 50;
             var pos = await locator.GetPositionAsync(timeoutMilliseconds: 10000);
             currentPosition = new Position(pos.Latitude, pos.Longitude);
+            //var load2 = Task.Run(() => getDistance(currentPosition));
         }
 
+        public async void getDistance(Position x)
+        {
+            string data = x.Latitude + "," + x.Longitude;
+            string uri = $"https://maps.googleapis.com/maps/api/distancematrix/json?origins={data}&destinations=-36.8519210,174.7624020&mode=bicycling&language=fr-FR&key=AIzaSyBstZwaR9vonfm-Xk9ZyevpiAFRSCrfS_s";
+
+            HttpClient httpclient = new HttpClient();
+            string response = await httpclient.GetStringAsync(uri);
+
+            rootObject = JsonConvert.DeserializeObject<GoogleMapObject.RootObject>(response);
+
+            distance = rootObject.routes[0].legs[0].distance.text;
+
+        }
+        /* Time constraint, error 
+        public string GetDistance() { return distance; }
+        public Position GetPosition() { return currentPosition; }
+        public string GetDuration() { return duration; }
+        */
     }
 }
