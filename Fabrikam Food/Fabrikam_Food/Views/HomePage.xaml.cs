@@ -15,6 +15,8 @@ namespace Fabrikam_Food.Views
         public HomePage()
         {
             InitializeComponent();
+            Title = "Login Page";
+            BackgroundColor = Color.FromHex("FFEBD0");
         }
         protected override async void OnAppearing()
         {

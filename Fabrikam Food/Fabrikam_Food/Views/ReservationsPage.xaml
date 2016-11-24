@@ -12,6 +12,5 @@
     <Picker x:Name =" PeriodPicker" IsEnabled="false" 
             SelectedIndexChanged="PeriodPicker_OnSelectedIndexChanged"/>
     <Button x:Name="AddButton" Text="Reserve to selected" TextColor="White" BackgroundColor="Red" Clicked="AddButton_Clicked" />
-    <Button x:Name="ChangeButton" Text="Change reservation to selected" TextColor="White" BackgroundColor="Red" Clicked="ChangeButton_Clicked" />
   </StackLayout>
 </ContentPage>

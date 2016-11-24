@@ -21,6 +21,8 @@ namespace Fabrikam_Food.Views
         String duration = "";
         public MapPage()
         {
+            Title = "Map View";
+            BackgroundColor = Color.FromHex("FFEBD0");
             var load = Task.Run(() => getPosition());
             var map = new Map(
                 MapSpan.FromCenterAndRadius(arbitrary, Distance.FromMiles(0.3)))

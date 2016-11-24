@@ -15,7 +15,7 @@ namespace Fabrikam_Food
         {
             Icon = "settings.png";
             Title = "Menu"; 
-            BackgroundColor = Color.FromHex("c6e2ff");
+            BackgroundColor = Color.FromHex("FFC77A");
 
             Menu = new MenuListView();
 
@@ -24,9 +24,9 @@ namespace Fabrikam_Food
                 Padding = new Thickness(10, 36, 0, 5),
                 Content = new Label
                 {
-                    TextColor = Color.FromHex("333"),
+                    TextColor = Color.Black,
                     Text = "MENU",
-                    FontSize = 18,
+                    FontSize = 20,
                 }
             };
 
@@ -35,6 +35,7 @@ namespace Fabrikam_Food
                 Spacing = 0,
                 VerticalOptions = LayoutOptions.FillAndExpand
             };
+            menuLabel.BackgroundColor = Color.FromHex("FFEBD0");
             layout.Children.Add(menuLabel);
             layout.Children.Add(Menu);
 

@@ -12,12 +12,14 @@ namespace Fabrikam_Food
     {
         public RootPage()
         {
+            BackgroundColor = Color.FromHex("FFEBD0");
             var menuPage = new MenuPage();
+            menuPage.BackgroundColor = Color.FromHex("FFEBD0");
             menuPage.Menu.ItemSelected += (sender, e) => NavigateTo(e.SelectedItem as MenuItem);
 
             Master = menuPage;
             var detail = new NavigationPage(new FirstPage());
-            detail.BarBackgroundColor = Color.FromHex("3498DB");
+            detail.BarBackgroundColor = Color.FromHex("FFC77A");
             detail.BarTextColor = Color.White;
             Detail = detail;
 
@@ -27,7 +29,7 @@ namespace Fabrikam_Food
         {
             Page displayPage = (Page)Activator.CreateInstance(menu.TargetType);
             var detail = new NavigationPage(displayPage);
-            detail.BarBackgroundColor = Color.FromHex("3498DB");
+            detail.BarBackgroundColor = Color.FromHex("CC9F62");
             detail.BarTextColor = Color.White;
             Detail = detail;
 

@@ -14,6 +14,7 @@ namespace Fabrikam_Food.Views
         public MenuListPage()
         {
             InitializeComponent();
+            BackgroundColor = Color.FromHex("FFEBD0");
             Title = "Menu List";
             this.WaitLabel.IsVisible = false;
             this.EntreeLabel.IsVisible = false;

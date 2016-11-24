@@ -6,6 +6,8 @@ namespace Fabrikam_Food
     {
         public SmartHelperPage()
         {
+            Title = "Smart Helper";
+            BackgroundColor = Color.FromHex("FFE6C6");
             var browser = new WebView();
             var source = new HtmlWebViewSource();
             source.Html = @"<html><body>

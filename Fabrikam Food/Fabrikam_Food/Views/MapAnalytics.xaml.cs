@@ -22,6 +22,8 @@ namespace Fabrikam_Food.Views
         public MapAnalytics()
         {
             InitializeComponent();
+            Title = "Map Analytics";
+            BackgroundColor = Color.FromHex("FFEBD0");
         }
         public async void getDistance(Position x)
         {

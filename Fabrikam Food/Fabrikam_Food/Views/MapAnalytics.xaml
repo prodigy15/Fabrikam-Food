@@ -3,6 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Fabrikam_Food.Views.MapAnalytics">
   <StackLayout VerticalOptions="CenterAndExpand">
-    <Button x:Name="MapDataButton" Text="Get Data" TextColor="White" BackgroundColor="Red" Clicked="MapDataButton_Clicked" />
+    <Button x:Name="MapDataButton" Text="Get Data" TextColor="White" BackgroundColor="Orange" Clicked="MapDataButton_Clicked" />
   </StackLayout>
 </ContentPage>

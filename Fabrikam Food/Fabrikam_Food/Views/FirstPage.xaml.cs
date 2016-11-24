@@ -13,6 +13,8 @@ namespace Fabrikam_Food.Views
         public FirstPage()
         {
             InitializeComponent();
+            Title = "About Fabrikam Food";
+            BackgroundColor = Color.FromHex("FFEBD0");
         }
     }
 }

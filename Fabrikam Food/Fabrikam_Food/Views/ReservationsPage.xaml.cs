@@ -19,6 +19,7 @@ namespace Fabrikam_Food.Views
         public ReservationsPage()
         {
             InitializeComponent();
+            Title = "Reservation";
             //populate meal period picker
             PeriodPicker.Items.Add("Lunch");
             PeriodPicker.Items.Add("High Tea");
@@ -75,10 +76,6 @@ namespace Fabrikam_Food.Views
         {
             AddReservation();
             await DisplayAlert("Adding data...", "Please wait a moment... ", "OK");
-        }
-        private async void ChangeButton_Clicked(object sender, EventArgs e)
-        {
-            ChangeReservation();
         }
         /*
          var r = reservationList.Where(s => reservationList.Any(s1 => s.Date == query[0]));
