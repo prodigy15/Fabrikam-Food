@@ -9,8 +9,8 @@
 	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 	<uses-permission android:name="android.permission.INTERNET" />
 	<application android:label="Fabrikam_Food.Droid">
-    <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyBSXf5GEuIhPSh9s-t9Q3R0gL4abdUQUWo" />
-    <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
-  </application>
+		<meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyBSXf5GEuIhPSh9s-t9Q3R0gL4abdUQUWo" />
+		<meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
+	</application>
 	<activity android:name="Fabrikam_Food.Droid.MapActivity" />
 </manifest>

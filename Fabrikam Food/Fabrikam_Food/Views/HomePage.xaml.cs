@@ -34,7 +34,6 @@ namespace Fabrikam_Food.Views
             if (authenticated)
             {
                 this.loginButton.IsVisible = false;
-                App.authenticatedAction(); //change pages not implemented yet
             }
         }
     }

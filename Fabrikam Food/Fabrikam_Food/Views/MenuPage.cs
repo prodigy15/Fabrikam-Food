@@ -15,7 +15,7 @@ namespace Fabrikam_Food
         {
             Icon = "settings.png";
             Title = "Menu"; 
-            BackgroundColor = Color.FromHex("dce8ef");
+            BackgroundColor = Color.FromHex("c6e2ff");
 
             Menu = new MenuListView();
 

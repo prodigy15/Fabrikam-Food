@@ -32,8 +32,8 @@ namespace Fabrikam_Food
             };*/
 
             //MainPage = new MapPage();
+            //MainPage = new HomePage();
             MainPage = new RootPage();
-            //MainPage = new MenuListPage();
         }
 
         protected override void OnStart()
@@ -55,11 +55,6 @@ namespace Fabrikam_Food
         public static void Init(IAuthenticate authenticator)
         {
             Authenticator = authenticator;
-        }
-
-        public static void authenticatedAction()
-        {
-            //App.Current.MainPage = new NavigationPage(new RootPage());
         }
     }
 }

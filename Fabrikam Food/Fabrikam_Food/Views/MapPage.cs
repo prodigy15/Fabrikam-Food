@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Plugin.Geolocator;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,11 +11,13 @@ namespace Fabrikam_Food.Views
 {
     public class MapPage : ContentPage
     {
+        Position currentPosition;
         public MapPage()
         {
+            var load = Task.Run(() => getPosition());
             var map = new Map(
                 MapSpan.FromCenterAndRadius(
-                        new Position(37, -122), Distance.FromMiles(0.3)))
+                        currentPosition, Distance.FromMiles(0.3)))
             {
                 IsShowingUser = true,
                 HeightRequest = 100,
@@ -31,16 +34,23 @@ namespace Fabrikam_Food.Views
                 var latlongdegrees = 360 / (Math.Pow(2, zoomLevel));
                 map.MoveToRegion(new MapSpan(map.VisibleRegion.Center, latlongdegrees, latlongdegrees));
             };
-
-            var position = new Position(37, -122); // Latitude, Longitude
             var pin = new Pin
             {
                 Type = PinType.Place,
-                Position = position,
+                Position = currentPosition,
                 Label = "custom pin",
                 Address = "custom detail info"
             };
             map.Pins.Add(pin);
         }
+
+        public async void getPosition()
+        {
+            var locator = CrossGeolocator.Current;
+            locator.DesiredAccuracy = 50;
+            var pos = await locator.GetPositionAsync(timeoutMilliseconds: 10000);
+            currentPosition = new Position(pos.Latitude, pos.Longitude);
+        }
+
     }
 }
