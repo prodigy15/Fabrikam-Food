@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Fabrikam_Food.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,30 +13,39 @@ namespace Fabrikam_Food
         {
             this.Add(new MenuItem()
             {
+                Title = "Fabrikam Food",
+                IconSource = "reservations.png",
+                TargetType = typeof(FirstPage)
+            });
+            this.Add(new MenuItem()
+            {
                 Title = "Reservations",
                 IconSource = "reservations.png",
                 TargetType = typeof(ReservationsPage)
             });
             this.Add(new MenuItem()
             {
+                Title = "Menu List",
+                IconSource = "settings.png",
+                TargetType = typeof(MenuListPage)
+            });
+            this.Add(new MenuItem()
+            {
                 Title = "Maps",
                 IconSource = "maps.png",
-                TargetType = typeof(MapsPage)
+                TargetType = typeof(MapPage)
             });
-
-
             this.Add(new MenuItem()
             {
                 Title = "Smart Helper",
                 IconSource = "smarthelper.png",
                 TargetType = typeof(SmartHelperPage)
             });
-
             this.Add(new MenuItem()
             {
-                Title = "Settings",
+                Title = "Log In",
                 IconSource = "settings.png",
-                TargetType = typeof(SettingsPage)
+                TargetType = typeof(HomePage)
             });
         }
     }

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Fabrikam_Food.Views.ReservationsPage">
+  <StackLayout>
+    <Label Text="Please select a date" HorizontalTextAlignment="Center"></Label>
+    <DatePicker x:Name ="Datepicker" MinimumDate="11/26/2016"
+                MaximumDate ="11/30/2016"
+                DateSelected ="DatePicker_OnDateSelected"/>
+
+    <Label Text="Please select a meal period" HorizontalTextAlignment="Center"></Label>
+    <Picker x:Name =" PeriodPicker" IsEnabled="false" 
+            SelectedIndexChanged="PeriodPicker_OnSelectedIndexChanged"/>
+    <Button x:Name="AddButton" Text="Reserve to selected" TextColor="White" BackgroundColor="Red" Clicked="AddButton_Clicked" />
+  </StackLayout>
+</ContentPage>

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Fabrikam_Food.Views.HomePage">
+  <StackLayout>
+    <StackLayout VerticalOptions="CenterAndExpand">
+      <Label x:Name="LoginDescription" Text="Welcome to Fabrikam Food! Please sign in for a more personalized experience!" HorizontalTextAlignment="Center"></Label>
+      <Button x:Name="loginButton" Text="Sign in using facebook account" MinimumHeightRequest="30" Clicked="loginButton_Clicked" />
+    </StackLayout>
+    
+  </StackLayout>
+</ContentPage>
