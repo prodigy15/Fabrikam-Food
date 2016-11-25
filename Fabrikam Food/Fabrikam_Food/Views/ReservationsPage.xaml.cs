@@ -32,10 +32,9 @@ namespace Fabrikam_Food.Views
         {
             Datepicker.IsEnabled = false;
             PeriodPicker.IsEnabled = false;
-
-            //await DisplayAlert("Test", "STARTING", "OK");
             reservationList = await AzureManager.AzureManagerInstance.GetReservation();
-           // await DisplayAlert("Test", "END", "OK");
+            await DisplayAlert("WARNING", "Please ensure you are logged in to make a reservation. ", "GOT IT!");
+            // await DisplayAlert("Test", "END", "OK");
 
             Datepicker.IsEnabled = true;
             PeriodPicker.IsEnabled = true;
@@ -49,18 +48,18 @@ namespace Fabrikam_Food.Views
         private void PeriodPicker_OnSelectedIndexChanged(object sender, EventArgs e)
         {
             var period = PeriodPicker.Items[PeriodPicker.SelectedIndex];
-            period = e.ToString();
+            //period = e.ToString(); //stupid ! this returns System.EventArgs!
             query[1] = period;
 
         }
         
         private async void AddReservation()
         {
-            
+
             currentReservation = new Reservations
             {
                 User = AzureManager.AzureManagerInstance.AzureClient.CurrentUser.UserId,
-                Date = query[0],
+                Date = query[0].ToString().Substring(0, 10),
                 Period = query[1]
             };
             await AzureManager.AzureManagerInstance.PostReservation(currentReservation);

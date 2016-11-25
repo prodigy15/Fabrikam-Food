@@ -17,8 +17,12 @@ namespace Fabrikam_Food.Views
         Position currentPosition;
         Position arbitrary = new Position(-36.8530660, 174.7712930);
         GoogleMapObject.RootObject rootObject;
+        GeocodeMapObject.RootObject grootObject;
         String distance = "";
         String duration = "";
+        Label distanceLabel;
+        Label travelTimeLabel;
+        Label addressLabel;
         public MapPage()
         {
             Title = "Map View";
@@ -32,7 +36,6 @@ namespace Fabrikam_Food.Views
                 WidthRequest = 960,
                 VerticalOptions = LayoutOptions.FillAndExpand
             };
-
             var pin = new Pin
             {
                 Type = PinType.Place,
@@ -52,11 +55,18 @@ namespace Fabrikam_Food.Views
                 var latlongdegrees = 360 / (Math.Pow(2, zoomLevel));
                 map.MoveToRegion(new MapSpan(map.VisibleRegion.Center, latlongdegrees, latlongdegrees));
             };
-
-
+            Button geocodeButton = new Button { Text = "MAP ANALYTICS(GPS)", };
+            addressLabel = new Label { Text = "Address" };
+            distanceLabel = new Label { Text = "Distance" };
+            travelTimeLabel = new Label { Text = "Travel Time" };
+            stack.Children.Add(geocodeButton);
+            stack.Children.Add(addressLabel);
+            stack.Children.Add(distanceLabel);
+            stack.Children.Add(travelTimeLabel);
+            geocodeButton.Clicked += OnButton_Clicked;
         }
 
-        public async void getPosition()
+        public async Task getPosition()
         {
             var locator = CrossGeolocator.Current;
             locator.DesiredAccuracy = 50;
@@ -67,16 +77,33 @@ namespace Fabrikam_Food.Views
 
         public async void getDistance(Position x)
         {
+            HttpClient hc1 = new HttpClient();
+            string res = await hc1.GetStringAsync("https://maps.googleapis.com/maps/api/geocode/json?latlng="+ x.Latitude + "," + x.Longitude +"&key=AIzaSyD4jf0zzdaPwcbOPHlcAMINJCAAO_Z6T-Q");
+            grootObject = JsonConvert.DeserializeObject<GeocodeMapObject.RootObject>(res);
+            var address = grootObject.results[0].formatted_address;
+
             string data = x.Latitude + "," + x.Longitude;
-            string uri = $"https://maps.googleapis.com/maps/api/distancematrix/json?origins={data}&destinations=-36.8519210,174.7624020&mode=bicycling&language=fr-FR&key=AIzaSyBstZwaR9vonfm-Xk9ZyevpiAFRSCrfS_s";
+            string uri = "https://maps.googleapis.com/maps/api/directions/json?origin="+ address +"&destination=250+Queen+St,+Auckland&key=AIzaSyD4jf0zzdaPwcbOPHlcAMINJCAAO_Z6T-Q";
 
             HttpClient httpclient = new HttpClient();
-            string response = await httpclient.GetStringAsync(uri);
-
+            string response = await httpclient.GetStringAsync(uri); // response stored as string
+            //Dserialize into a googlemapobject class
             rootObject = JsonConvert.DeserializeObject<GoogleMapObject.RootObject>(response);
-
             distance = rootObject.routes[0].legs[0].distance.text;
+            duration = rootObject.routes[0].legs[0].duration.text;
 
+            distanceLabel.Text = "Distance: " + distance + " from Fabrikam Food"; 
+            travelTimeLabel.Text = "Travel Time: " + duration + " from Fabrikam Food";
+            addressLabel.Text = "Your current Address is " + address;
+
+            //string information = $"From Geocode {x.Latitude}, {x.Longitude} to 250 Queen Street will take approximately {duration} and is a total of {distance}.";
+            //await DisplayAlert("Map Analytics:", information, "OK");
+
+        }
+        async void OnButton_Clicked(object sender, EventArgs e)
+        {
+            await getPosition();
+            getDistance(currentPosition);
         }
         /* Time constraint, error 
         public string GetDistance() { return distance; }

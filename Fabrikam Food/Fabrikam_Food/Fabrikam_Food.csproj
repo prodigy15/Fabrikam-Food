@@ -36,6 +36,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="AzureManager.cs" />
+    <Compile Include="DataModels\GeocodeMapObject.cs" />
     <Compile Include="DataModels\GoogleMapObject.cs" />
     <Compile Include="DataModels\Menu.cs" />
     <Compile Include="DataModels\Reservations.cs" />
@@ -44,9 +45,7 @@
     <Compile Include="Views\FirstPage.xaml.cs">
       <DependentUpon>FirstPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\MapAnalytics.xaml.cs">
-      <DependentUpon>MapAnalytics.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="Views\MapPage.cs" />
     <Compile Include="Views\MenuItem.cs" />
     <Compile Include="Views\MenuListData.cs" />
     <Compile Include="Views\MenuListView.cs" />
@@ -55,7 +54,6 @@
     <Compile Include="Views\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\MapPage.cs" />
     <Compile Include="Views\MenuListPage.xaml.cs">
       <DependentUpon>MenuListPage.xaml</DependentUpon>
     </Compile>
@@ -147,12 +145,6 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\ReservationsPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Views\MapAnalytics.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

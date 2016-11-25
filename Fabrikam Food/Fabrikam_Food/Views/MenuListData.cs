@@ -37,12 +37,6 @@ namespace Fabrikam_Food
             });
             this.Add(new MenuItem()
             {
-                Title = "Map Analytics",
-                IconSource = "maps.png",
-                TargetType = typeof(MapAnalytics)
-            });
-            this.Add(new MenuItem()
-            {
                 Title = "Smart Helper",
                 IconSource = "smarthelper.png",
                 TargetType = typeof(SmartHelperPage)

@@ -8,6 +8,7 @@ namespace Fabrikam_Food.DataModels
 {
     class GoogleMapObject
     {
+        //made with json2csharp
         public class GeocodedWaypoint
         {
             public string geocoder_status { get; set; }
