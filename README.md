@@ -2,6 +2,7 @@
 Phase 2
 
  This is a project made for Fabrikam Food, a small boutique restaurant based in Auckland City.
+ 
  Main Features of this application include:
   1. Using Azure Services to implement a backend for my xamarin application
     -Requesting Data and inserting Data onto Azure Portal Easy Tables:
